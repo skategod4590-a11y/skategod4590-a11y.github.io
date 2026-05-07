@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>my personal favorites</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: white;
+      text-align: center;
+    }
+
+    header {
+      padding: 40px;
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-transform: lowercase;
+      color: #00fff7;
+      text-shadow: 0 0 10px #00fff7, 0 0 20px #ff00ff;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,255,247,0.2), 0 0 20px rgba(255,0,255,0.1);
+      border: 1px solid rgba(0,255,247,0.2);
+      backdrop-filter: blur(10px);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(0,255,247,0.6), 0 0 30px rgba(255,0,255,0.4);
+    }
+
+    a.button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #00fff7;
+      color: black;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 10px #00fff7;
+    }
+
+    footer {
+      margin: 30px;
+      opacity: 0.7;
+      font-size: 0.9rem;
+      text-transform: lowercase;
+      color: #00fff7;
+    }
+  </style>
+</head>
+<body>
+
+<header>my personal favorites</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>games</h2>
+    <p>beat saber, vr games, rhythm games</p>
+  </div>
+
+  <div class="card">
+    <h2>music</h2>
+    <p>fast, energetic songs for gaming</p>
+  </div>
+
+  <div class="card">
+    <h2>support / socials</h2>
+    <p>join my community or support me</p>
+    <a class="button" href="https://discord.gg/ndxK8xBUgu" target="_blank">join discord</a>
+  </div>
+
+  <div class="card">
+    <h2>youtube</h2>
+    <p>my videos and shorts</p>
+    <a class="button" href="https://www.youtube.com/@gallowvan" target="_blank">youtube channel</a>
+  </div>
+
+  <div class="card">
+    <h2>forms</h2>
+    <p>send feedback or messages</p>
+    <a class="button" href="https://forms.gle/eHZ9xGQgiBU1JQxL6" target="_blank">open form</a>
+  </div>
+
+  <div class="card">
+    <h2>beatsaber profiles</h2>
+    <p>main and alt profiles</p>
+    <a class="button" href="https://beatsaver.com/profile/363982" target="_blank">main profile</a>
+    <a class="button" href="https://beatsaver.com/profile/362295" target="_blank">alt profile</a>
+  </div>
+
+  <div class="card">
+    <h2>subscriber goal</h2>
+    <p>current subs: <span id="subs">253</span></p>
+    <p>jumps by 10 when reaching 260+</p>
+  </div>
+
+  <div class="card">
+    <h2>grass</h2>
+    <p>grass is honestly one of the most overlooked things in everyday life. we walk past it, step on it, mow it, and barely think about it, but it’s actually doing so much all the time. it helps keep the environment balanced, prevents soil from washing away, and provides a home for tons of tiny insects and organisms we don’t even notice. it’s kind of crazy that something so simple and common is actually important for life on earth.</p>
+    <p>even on a normal day, grass changes how the world feels. a park without grass just wouldn’t feel the same. it adds color, softness, and a kind of calm vibe that makes outdoor spaces more relaxing. it’s one of those things you don’t really appreciate until you stop and think about it.</p>
+    <p>at the same time, it’s funny how humans treat it like it’s just decoration we have to constantly cut back. we literally maintain it like it’s some kind of living carpet. still, i guess that’s part of what makes it interesting—it’s natural, but also shaped by how we live with it.</p>
+    <p>overall, grass might seem basic, but it plays a bigger role in nature and in our daily lives than most people realize.</p>
+  </div>
+
+</div>
+
+<footer>
+made by you | my personal favorites
+</footer>
+
+<script>
+let subs = 253;
+
+function updateSubs() {
+  document.getElementById("subs").textContent = subs;
+}
+
+setInterval(() => {
+  subs++;
+
+  if (subs >= 260) {
+    subs = Math.ceil(subs / 10) * 10 + 10;
+  }
+
+  updateSubs();
+}, 2000);
+
+updateSubs();
+</script>
+
+</body>
+</html>
