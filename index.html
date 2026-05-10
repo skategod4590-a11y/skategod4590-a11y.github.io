@@ -4,133 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>my personal favorites</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, "Microsoft YaHei", "Noto Sans KR", "Noto Sans Devanagari", sans-serif;
-      background: #000;
-      color: white;
-      text-align: center;
-      padding-bottom: 100px;
-    }
 
-    header {
-      padding: 40px;
-      font-size: 2.5rem;
-      font-weight: bold;
-      text-transform: lowercase;
-      color: #00fff7;
-      text-shadow: 0 0 10px #00fff7, 0 0 20px #ff00ff;
-    }
-
-    /* Language Switcher */
-    .lang-bar {
-      padding: 15px;
-      background: rgba(255, 255, 255, 0.05);
-      border-bottom: 1px solid rgba(0, 255, 247, 0.2);
-      margin-bottom: 20px;
-    }
-
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0,255,247,0.2), 0 0 20px rgba(255,0,255,0.1);
-      border: 1px solid rgba(0,255,247,0.2);
-      backdrop-filter: blur(10px);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .card:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 15px rgba(0,255,247,0.6), 0 0 30px rgba(255,0,255,0.4);
-    }
-
-    /* Buttons */
-    .button {
-      display: inline-block;
-      margin: 5px;
-      padding: 10px 15px;
-      background: #00fff7;
-      color: black;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 0 10px #00fff7;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .button:hover {
-      background: white;
-      box-shadow: 0 0 20px #00fff7;
-      transform: translateY(-2px);
-    }
-
-    /* Calculator */
-    #display {
-      width: 90%;
-      background: #111;
-      color: #00fff7;
-      border: 1px solid #ff00ff;
-      padding: 10px;
-      border-radius: 5px;
-      margin-bottom: 10px;
-      text-align: right;
-      font-family: monospace;
-      font-size: 1.2rem;
-    }
-
-    .calc-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 5px;
-    }
-
-    /* The Cat Mascot */
-    .corner-cat {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 150px;
-      height: auto;
-      border-radius: 15px;
-      border: 2px solid #00fff7;
-      box-shadow: 0 0 15px #00fff7;
-      z-index: 1000;
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      cursor: pointer;
-      image-rendering: auto;
-    }
-
-    .corner-cat:hover {
-      transform: scale(1.1) translateY(-10px) rotate(5deg);
-      box-shadow: 0 0 25px #ff00ff, 0 0 40px #00fff7;
-      border-color: #ff00ff;
-    }
-
-    footer {
-      margin: 30px;
-      opacity: 0.7;
-      font-size: 0.9rem;
-      text-transform: lowercase;
-      color: #00fff7;
-    }
-
-    @media (max-width: 600px) {
-      .corner-cat { width: 100px; bottom: 10px; right: 10px; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -160,20 +35,25 @@
 
   <div class="card">
     <h2 id="calc-title">math for gamers</h2>
+
     <input type="text" id="display" readonly>
+
     <div class="calc-grid">
       <button class="button" onclick="clearCalc()">C</button>
       <button class="button" onclick="appendToDisplay('7')">7</button>
       <button class="button" onclick="appendToDisplay('8')">8</button>
       <button class="button" onclick="appendToDisplay('/')">/</button>
+
       <button class="button" onclick="appendToDisplay('4')">4</button>
       <button class="button" onclick="appendToDisplay('5')">5</button>
       <button class="button" onclick="appendToDisplay('6')">6</button>
       <button class="button" onclick="appendToDisplay('*')">x</button>
+
       <button class="button" onclick="appendToDisplay('1')">1</button>
       <button class="button" onclick="appendToDisplay('2')">2</button>
       <button class="button" onclick="appendToDisplay('3')">3</button>
       <button class="button" onclick="appendToDisplay('-')">-</button>
+
       <button class="button" onclick="appendToDisplay('0')">0</button>
       <button class="button" onclick="calculate()">=</button>
       <button class="button" onclick="appendToDisplay('+')">+</button>
@@ -182,184 +62,60 @@
 
   <div class="card">
     <h2 id="subs-title">subscriber goal</h2>
-    <p><span id="subs-label">current subs:</span> <span id="subs">253</span></p>
-    <p id="subs-note">jumps by 10 when reaching 260+</p>
+
+    <p>
+      <span id="subs-label">current subs:</span>
+      <span id="subs">253</span>
+    </p>
+
+    <p id="subs-note">
+      jumps by 10 when reaching 260+
+    </p>
   </div>
 
   <div class="card">
     <h2 id="grass-title">grass</h2>
-    <p id="grass-p1">grass is honestly one of the most overlooked things in everyday life. we walk past it, step on it, and barely think about it, but it’s actually doing so much all the time.</p>
-    <p id="grass-p2">it adds color, softness, and a kind of calm vibe that makes outdoor spaces more relaxing.</p>
+
+    <p id="grass-p1">
+      grass is honestly one of the most overlooked things in everyday life.
+    </p>
+
+    <p id="grass-p2">
+      it adds color, softness, and a kind of calm vibe.
+    </p>
   </div>
 
   <div class="card">
     <h2>socials</h2>
-    <a class="button" href="https://discord.gg/ndxK8xBUgu" target="_blank">discord</a>
-    <a class="button" href="https://www.youtube.com/@gallowvan" target="_blank">youtube</a>
+
+    <a class="button"
+       href="https://discord.gg/ndxK8xBUgu"
+       target="_blank">
+       discord
+    </a>
+
+    <a class="button"
+       href="https://www.youtube.com/@gallowvan"
+       target="_blank">
+       youtube
+    </a>
   </div>
 
 </div>
 
 <footer>
-  made by you | <span id="footer-text">my personal favorites</span>
+  made by you |
+  <span id="footer-text">my personal favorites</span>
 </footer>
 
-<img src="cat.jpg" class="corner-cat" id="cat-mascot" alt="blep cat">
+<img
+  src="cat.jpg"
+  class="corner-cat"
+  id="cat-mascot"
+  alt="blep cat"
+>
 
-<script>
-let subs = 253;
-
-// --- TRANSLATIONS ---
-const translations = {
-  en: {
-    title: "my personal favorites",
-    games: "games",
-    games_desc: "beat saber, vr games, rhythm games",
-    music: "music",
-    music_desc: "fast, energetic songs for gaming",
-    calc: "math for gamers",
-    subs: "subscriber goal",
-    subs_lbl: "current subs:",
-    subs_note: "jumps by 10 when reaching 260+",
-    grass: "grass",
-    grass1: "grass is honestly one of the most overlooked things in everyday life. we walk past it, step on it, and barely think about it.",
-    grass2: "it adds color, softness, and a kind of calm vibe.",
-    cat: "Meow!"
-  },
-  de: {
-    title: "meine favoriten",
-    games: "spiele",
-    games_desc: "beat saber, vr-spiele, rhythmusspiele",
-    music: "musik",
-    music_desc: "schnelle musik zum zocken",
-    calc: "mathe für zocker",
-    subs: "abonnentenziel",
-    subs_lbl: "aktuelle subs:",
-    subs_note: "springt um 10 ab 260+",
-    grass: "gras",
-    grass1: "gras wird im alltag oft übersehen. wir gehen daran vorbei und denken nicht nach.",
-    grass2: "es bringt farbe und eine ruhige atmosphäre.",
-    cat: "Miau!"
-  },
-  es: {
-    title: "mis favoritos",
-    games: "juegos",
-    games_desc: "beat saber, juegos vr, ritmo",
-    music: "música",
-    music_desc: "música energética para jugar",
-    calc: "matemáticas gamer",
-    subs: "meta de subs",
-    subs_lbl: "subs actuales:",
-    subs_note: "salta de 10 en 10 a los 260+",
-    grass: "césped",
-    grass1: "el césped es ignorado en la vida diaria. caminamos sobre él sin pensar.",
-    grass2: "aporta color y una vibra tranquila.",
-    cat: "¡Miau!"
-  },
-  fr: {
-    title: "mes favoris",
-    games: "jeux",
-    games_desc: "beat saber, jeux vr, rythme",
-    music: "musique",
-    music_desc: "musique rapide pour le jeu",
-    calc: "maths pour gamers",
-    subs: "objectif d'abonnés",
-    subs_lbl: "abonnés actuels:",
-    subs_note: "augmente de 10 après 260+",
-    grass: "l'herbe",
-    grass1: "l'herbe est négligée. on marche dessus sans y penser.",
-    grass2: "cela apporte de la couleur et du calme.",
-    cat: "Miaou !"
-  },
-  ko: {
-    title: "내가 좋아하는 것들",
-    games: "게임",
-    games_desc: "비트 세이버, VR 게임, 리듬 게임",
-    music: "음악",
-    music_desc: "게임을 위한 에너지 넘치는 곡",
-    calc: "게이머를 위한 수학",
-    subs: "구독자 목표",
-    subs_lbl: "현재 구독자:",
-    subs_note: "260명 도달 시 10명씩 점프",
-    grass: "잔디",
-    grass1: "잔디는 일상에서 가장 간과되는 것 중 하나입니다.",
-    grass2: "잔디는 평온한 분위기를 더해줍니다.",
-    cat: "야옹!"
-  },
-  zh: {
-    title: "我的收藏",
-    games: "游戏",
-    games_desc: "节奏光剑, VR游戏, 节奏游戏",
-    music: "音乐",
-    music_desc: "适合游戏的动感音乐",
-    calc: "玩家数学",
-    subs: "订阅目标",
-    subs_lbl: "当前订阅:",
-    subs_note: "达到260后每次增加10",
-    grass: "草",
-    grass1: "草是生活中最容易被忽视的事物。",
-    grass2: "它带来了色彩和宁静。",
-    cat: "喵!"
-  },
-  hi: {
-    title: "मेरी पसंद",
-    games: "खेल",
-    games_desc: "बीट सेबर, वीआर गेम, रिदम गेम",
-    music: "संगीत",
-    music_desc: "गेमिंग के लिए तेज़ गाने",
-    calc: "गेमर्स के लिए गणित",
-    subs: "सदस्यता लक्ष्य",
-    subs_lbl: "वर्तमान सदस्य:",
-    subs_note: "260 के बाद 10 की छलांग",
-    grass: "घास",
-    grass1: "घास रोजमर्रा की जिंदगी में सबसे ज्यादा नजरअंदाज की जाती है।",
-    grass2: "यह शांति और रंग प्रदान करती है।",
-    cat: "म्याऊ!"
-  }
-};
-
-function changeLanguage(lang) {
-  document.documentElement.lang = lang;
-  const t = translations[lang];
-  document.getElementById('main-title').textContent = t.title;
-  document.getElementById('games-title').textContent = t.games;
-  document.getElementById('games-desc').textContent = t.games_desc;
-  document.getElementById('music-title').textContent = t.music;
-  document.getElementById('music-desc').textContent = t.music_desc;
-  document.getElementById('calc-title').textContent = t.calc;
-  document.getElementById('subs-title').textContent = t.subs;
-  document.getElementById('subs-label').textContent = t.subs_lbl;
-  document.getElementById('subs-note').textContent = t.subs_note;
-  document.getElementById('grass-title').textContent = t.grass;
-  document.getElementById('grass-p1').textContent = t.grass1;
-  document.getElementById('grass-p2').textContent = t.grass2;
-  document.getElementById('footer-text').textContent = t.title;
-}
-
-// --- CALCULATOR LOGIC ---
-function appendToDisplay(value) { document.getElementById('display').value += value; }
-function clearCalc() { document.getElementById('display').value = ''; }
-function calculate() {
-  try { document.getElementById('display').value = eval(document.getElementById('display').value); }
-  catch { document.getElementById('display').value = 'Error'; setTimeout(clearCalc, 1000); }
-}
-
-// --- SUB COUNTER LOGIC ---
-function updateSubs() { document.getElementById("subs").textContent = subs; }
-setInterval(() => {
-  subs++;
-  if (subs >= 260) { subs = Math.ceil(subs / 10) * 10 + 10; }
-  updateSubs();
-}, 2000);
-
-// --- CAT INTERACTION ---
-document.getElementById('cat-mascot').addEventListener('click', () => {
-  const currentLang = document.documentElement.lang || 'en';
-  alert(translations[currentLang].cat);
-});
-
-updateSubs();
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
